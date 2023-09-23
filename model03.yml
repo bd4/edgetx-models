@@ -45,11 +45,13 @@ flightModeData:
       0:
         val: -100
       1:
-        val: 75
+        val: 100
       2:
         val: 25
       4:
-        val: 100
+        val: 50
+      6:
+        val: 50
   1:
     trim:
       2:
@@ -88,6 +90,8 @@ flightModeData:
         val: 1
       4:
         val: 70
+      7:
+        val: 1
   4:
     trim:
       2:
@@ -102,6 +106,8 @@ flightModeData:
         val: 2
       4:
         val: 70
+      7:
+        val: 2
   5:
     trim:
       2:
@@ -118,6 +124,8 @@ flightModeData:
         val: 100
       5:
         val: 1
+      7:
+        val: 3
   6:
     trim:
       2:
@@ -770,6 +778,19 @@ expoData:
       value: 0
     trimSource: 0
     name: ""
+  - srcRaw: gv(7)
+    scale: 0
+    mode: 3
+    chn: 9
+    swtch: NONE
+    flightModes: 000000000
+    weight: 0
+    offset: GV8
+    curve:
+      type: 0
+      value: 0
+    trimSource: 0
+    name: ""
   - srcRaw: POT1
     scale: 0
     mode: 3
@@ -815,8 +836,8 @@ expoData:
     chn: 27
     swtch: NONE
     flightModes: 000000000
-    weight: 100
-    offset: 0
+    weight: 0
+    offset: GV7
     curve:
       type: 0
       value: 0
@@ -837,6 +858,8 @@ inputNames:
     val: Cal
   6:
     val: Flp
+  9:
+    val: Tlv
   19:
     val: Rat
   20:
@@ -912,22 +935,28 @@ logicalSw:
     andsw: NONE
   4:
     func: FUNC_STICKY
-    def: L7,L6
+    def: L19,L4
     delay: 0
     duration: 0
     andsw: NONE
   5:
-    func: FUNC_OR
-    def: L4,SA0
+    func: FUNC_VEQUAL
+    def: gv(3),-1
     delay: 0
     duration: 0
     andsw: NONE
   6:
+    func: FUNC_EDGE
+    def: L3,0,-
+    delay: 0
+    duration: 100
+    andsw: L18
+  7:
     func: FUNC_AND
-    def: L19,SA2
+    def: L6,!L7
     delay: 0
     duration: 0
-    andsw: NONE
+    andsw: L18
   9:
     func: FUNC_EDGE
     def: TrimThrUp,0,8
@@ -967,6 +996,12 @@ logicalSw:
   15:
     func: FUNC_EDGE
     def: TrimThrDown,20,30
+    delay: 0
+    duration: 0
+    andsw: NONE
+  17:
+    func: FUNC_VPOS
+    def: gv(7),0
     delay: 0
     duration: 0
     andsw: NONE
@@ -1027,103 +1062,111 @@ customFn:
     swtch: "!L5"
     func: PLAY_TRACK
     def: trnoff,!1x
-  10:
+  8:
+    swtch: L7
+    func: ADJUST_GVAR
+    def: 3,Cst,-1,1
+  9:
+    swtch: L8
+    func: ADJUST_GVAR
+    def: 3,Src,I9,1
+  11:
     swtch: SF2
     func: OVERRIDE_CHANNEL
     def: 4,-100,1
-  11:
+  12:
     swtch: SF2
     func: PLAY_TRACK
     def: sftyon,1x
-  19:
-    swtch: ON
-    func: ADJUST_GVAR
-    def: 1,Src,I19,1
   20:
     swtch: ON
     func: ADJUST_GVAR
-    def: 2,Src,I20,1
+    def: 1,Src,I19,1
   21:
     swtch: ON
     func: ADJUST_GVAR
+    def: 2,Src,I20,1
+  22:
+    swtch: ON
+    func: ADJUST_GVAR
     def: 4,Src,I21,1
-  23:
+  24:
     swtch: TrimThrUp
     func: PLAY_SOUND
     def: Bp1,1
-  24:
+  25:
     swtch: L12
     func: PLAY_TRACK
     def: hdadj,1x
-  25:
+  26:
     swtch: L11
     func: RESET
     def: Tmr1,1
-  26:
+  27:
     swtch: L11
     func: PLAY_TRACK
     def: timrs1,1x
-  30:
+  31:
     swtch: SC0
     func: PLAY_TRACK
     def: rathi,!1x
-  31:
+  32:
     swtch: SC1
     func: PLAY_TRACK
     def: ratmed,1x
-  32:
+  33:
     swtch: SC2
     func: PLAY_TRACK
     def: ratmod,1x
-  34:
+  35:
     swtch: SB0
     func: PLAY_VALUE
     def: gv(4),!1x
-  35:
+  36:
     swtch: SB1
     func: PLAY_VALUE
     def: gv(4),!1x
-  36:
+  37:
     swtch: SB2
     func: PLAY_VALUE
     def: gv(4),!1x
-  38:
+  39:
     swtch: TrimThrDown
     func: PLAY_SOUND
     def: Bp3,1
-  39:
+  40:
     swtch: L15
     func: PLAY_TRACK
     def: ratmod,1x
-  40:
-    swtch: L15
-    func: PLAY_VALUE
-    def: gv(1),1x
   41:
     swtch: L15
     func: PLAY_VALUE
-    def: gv(2),1x
+    def: gv(1),1x
   42:
+    swtch: L15
+    func: PLAY_VALUE
+    def: gv(2),1x
+  43:
     swtch: L16
     func: PLAY_VALUE
     def: gv(3),1x
-  44:
+  45:
     swtch: ON
     func: BACKLIGHT
     def: I27,1
-  45:
+  46:
     swtch: L10
     func: ADJUST_GVAR
     def: 6,IncDec,10,1
-  46:
+  47:
     swtch: L14
     func: ADJUST_GVAR
     def: 6,IncDec,-10,1
-  47:
+  48:
     swtch: L13
     func: PLAY_TRACK
     def: osd,1x
-  48:
+  49:
     swtch: L13
     func: PLAY_VALUE
     def: gv(6),1x
@@ -1167,7 +1210,7 @@ gvars:
     unit: 0
   3:
     name: Tmo
-    min: 1024
+    min: 1023
     max: 1021
     popup: 0
     prec: 0
@@ -1188,8 +1231,15 @@ gvars:
     unit: 0
   6:
     name: Bkl
-    min: 924
+    min: 1024
     max: 924
+    popup: 0
+    prec: 0
+    unit: 0
+  7:
+    name: Tlv
+    min: 1024
+    max: 1018
     popup: 0
     prec: 0
     unit: 0
