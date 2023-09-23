@@ -46,6 +46,10 @@ flightModeData:
         val: -100
       1:
         val: -100
+      2:
+        val: 100
+      3:
+        val: 20
   1:
     trim:
       0:
@@ -258,6 +262,40 @@ mixData:
     flightModes: 000000000
     offset: 0
     name: ""
+  - destCh: 19
+    srcRaw: I19
+    weight: 100
+    swtch: NONE
+    curve:
+      type: 0
+      value: 0
+    delayUp: 0
+    delayDown: 0
+    speedUp: 0
+    speedDown: 0
+    carryTrim: 0
+    mltpx: ADD
+    mixWarn: 0
+    flightModes: 000000000
+    offset: 0
+    name: DyR
+  - destCh: 20
+    srcRaw: I20
+    weight: 100
+    swtch: NONE
+    curve:
+      type: 0
+      value: 0
+    delayUp: 0
+    delayDown: 0
+    speedUp: 0
+    speedDown: 0
+    carryTrim: 0
+    mltpx: ADD
+    mixWarn: 0
+    flightModes: 000000000
+    offset: 0
+    name: DyE
 limitData:
   0:
     min: 0
@@ -313,12 +351,69 @@ limitData:
     symetrical: 0
     name: FM2
     curve: 0
+  19:
+    min: 0
+    max: 0
+    revert: 0
+    offset: 0
+    ppmCenter: 0
+    symetrical: 0
+    name: DyR
+    curve: 0
+  20:
+    min: 0
+    max: 0
+    revert: 0
+    offset: 0
+    ppmCenter: 0
+    symetrical: 0
+    name: DyE
+    curve: 0
 expoData:
   - srcRaw: Ail
     scale: 0
     mode: 3
     chn: 0
-    swtch: NONE
+    swtch: SC0
+    flightModes: 000000000
+    weight: 100
+    offset: 0
+    curve:
+      type: 1
+      value: 20
+    trimSource: 0
+    name: ""
+  - srcRaw: Ail
+    scale: 0
+    mode: 3
+    chn: 0
+    swtch: SC1
+    flightModes: 000000000
+    weight: 90
+    offset: 0
+    curve:
+      type: 1
+      value: 30
+    trimSource: 0
+    name: Mid
+  - srcRaw: Ail
+    scale: 0
+    mode: 3
+    chn: 0
+    swtch: SC2
+    flightModes: 000000000
+    weight: GV3
+    offset: 0
+    curve:
+      type: 1
+      value: GV4
+    trimSource: 0
+    name: Dyn
+  - srcRaw: Ele
+    scale: 0
+    mode: 3
+    chn: 1
+    swtch: SC0
     flightModes: 000000000
     weight: 100
     offset: 0
@@ -331,15 +426,28 @@ expoData:
     scale: 0
     mode: 3
     chn: 1
-    swtch: NONE
+    swtch: SC1
     flightModes: 000000000
-    weight: 100
+    weight: 90
     offset: 0
     curve:
       type: 1
-      value: 20
+      value: 30
     trimSource: 0
-    name: ""
+    name: Mid
+  - srcRaw: Ele
+    scale: 0
+    mode: 3
+    chn: 1
+    swtch: SC2
+    flightModes: 000000000
+    weight: GV3
+    offset: 0
+    curve:
+      type: 1
+      value: GV4
+    trimSource: 0
+    name: Dyn
   - srcRaw: Thr
     scale: 0
     mode: 3
@@ -357,7 +465,7 @@ expoData:
     scale: 0
     mode: 3
     chn: 3
-    swtch: NONE
+    swtch: SC0
     flightModes: 000000000
     weight: 100
     offset: 0
@@ -366,6 +474,32 @@ expoData:
       value: 15
     trimSource: 0
     name: ""
+  - srcRaw: Rud
+    scale: 0
+    mode: 3
+    chn: 3
+    swtch: SC1
+    flightModes: 000000000
+    weight: 90
+    offset: 0
+    curve:
+      type: 1
+      value: 20
+    trimSource: 0
+    name: Mid
+  - srcRaw: Rud
+    scale: 0
+    mode: 3
+    chn: 3
+    swtch: SC2
+    flightModes: 000000000
+    weight: GV3
+    offset: 0
+    curve:
+      type: 1
+      value: GV4
+    trimSource: 0
+    name: Dyn
   - srcRaw: MAX
     scale: 0
     mode: 3
@@ -392,6 +526,32 @@ expoData:
       value: 0
     trimSource: 0
     name: ""
+  - srcRaw: POT1
+    scale: 0
+    mode: 3
+    chn: 19
+    swtch: NONE
+    flightModes: 000000000
+    weight: 100
+    offset: 0
+    curve:
+      type: 3
+      value: 5
+    trimSource: 0
+    name: ""
+  - srcRaw: POT2
+    scale: 0
+    mode: 3
+    chn: 20
+    swtch: NONE
+    flightModes: 000000000
+    weight: 100
+    offset: 0
+    curve:
+      type: 3
+      value: 6
+    trimSource: 0
+    name: ""
 inputNames:
   0:
     val: Ail
@@ -405,6 +565,10 @@ inputNames:
     val: FM1
   6:
     val: FM2
+  19:
+    val: Rat
+  20:
+    val: Exp
 curves:
   0:
     type: 0
@@ -421,6 +585,16 @@ curves:
     smooth: 0
     points: -2
     name: Rud
+  4:
+    type: 0
+    smooth: 0
+    points: -3
+    name: Rat
+  5:
+    type: 0
+    smooth: 0
+    points: -3
+    name: Exp
 points:
   0:
     val: -58
@@ -440,6 +614,14 @@ points:
     val: 0
   13:
     val: 47
+  14:
+    val: 50
+  15:
+    val: 100
+  16:
+    val: 0
+  17:
+    val: 50
 logicalSw:
   0:
     func: FUNC_VNEG
@@ -473,7 +655,7 @@ customFn:
   5:
     swtch: 6P22
     func: PLAY_TRACK
-    def: acrmod,1x
+    def: safeof,1x
   6:
     swtch: 6P23
     func: PLAY_TRACK
@@ -494,6 +676,34 @@ customFn:
     swtch: SF2
     func: PLAY_TRACK
     def: sftyon,1x
+  13:
+    swtch: ON
+    func: ADJUST_GVAR
+    def: 2,Src,I19,1
+  14:
+    swtch: ON
+    func: ADJUST_GVAR
+    def: 3,Src,I20,1
+  16:
+    swtch: SC0
+    func: PLAY_TRACK
+    def: rathi,!1x
+  17:
+    swtch: SC1
+    func: PLAY_TRACK
+    def: ratmed,1x
+  18:
+    swtch: SC2
+    func: PLAY_TRACK
+    def: ratmod,1x
+  19:
+    swtch: SC2
+    func: PLAY_VALUE
+    def: gv(2),1x
+  20:
+    swtch: SC2
+    func: PLAY_VALUE
+    def: gv(3),1x
 swashR:
   type: TYPE_NONE
   value: 0
@@ -504,7 +714,7 @@ swashR:
   aileronWeight: 0
   elevatorWeight: 0
 thrTraceSrc: ch(2)
-switchWarningState: Dd
+switchWarningState: CuDd
 thrTrimSw: 0
 potsWarnMode: WARN_OFF
 jitterFilter: GLOBAL
@@ -522,6 +732,20 @@ gvars:
     name: CH7
     min: 924
     max: 924
+    popup: 0
+    prec: 0
+    unit: 0
+  2:
+    name: DyR
+    min: 0
+    max: 0
+    popup: 0
+    prec: 0
+    unit: 0
+  3:
+    name: DyE
+    min: 0
+    max: 0
     popup: 0
     prec: 0
     unit: 0
