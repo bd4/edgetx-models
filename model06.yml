@@ -1,770 +1,759 @@
 semver: 2.9.0
-header:
-  name: VS4-10
-  bitmap: ""
-  labels: ""
-  modelId:
-    1:
-      val: 10
-noGlobalFunctions: 0
+header: 
+   name: "VS4-10"
+   modelId: 
+      1:
+         val: 10
+telemetryProtocol: 0
 thrTrim: 0
-trimInc: 0
-displayTrims: 0
+noGlobalFunctions: 0
+displayTrims: 2
 ignoreSensorIds: 0
-showInstanceIds: 0
+trimInc: 0
 disableThrottleWarning: 0
+displayChecklist: 0
+extendedLimits: 1
+extendedTrims: 1
+throttleReversed: 0
 enableCustomThrottleWarning: 0
+disableTelemetryWarning: 0
+showInstanceIds: 0
 customThrottleWarningPosition: 0
 beepANACenter: 0
-extendedLimits: 0
-extendedTrims: 0
-throttleReversed: 0
-flightModeData:
-  0:
-    trim:
-      2:
-        value: 0
-        mode: 31
-      3:
-        value: -52
-        mode: 0
-    name: High
-    fadeIn: 0
-    fadeOut: 0
-    gvars:
-      1:
-        val: 100
-      2:
-        val: 20
-      3:
-        val: 100
-      4:
-        val: 20
-  1:
-    trim:
-      2:
-        value: 0
-        mode: 31
-    swtch: 6P21
-    name: Mid
-    fadeIn: 0
-    fadeOut: 0
-    gvars:
-      0:
-        val: 1
-      1:
-        val: 75
-      2:
-        val: 20
-      3:
-        val: 50
-      4:
-        val: 20
-  2:
-    trim:
-      2:
-        value: 0
-        mode: 31
-    swtch: 6P22
-    name: Low
-    fadeIn: 0
-    fadeOut: 0
-    gvars:
-      0:
-        val: 2
-      1:
-        val: 90
-      2:
-        val: 20
-      3:
-        val: 75
-      4:
-        val: 20
-mixData:
-  - destCh: 0
-    srcRaw: I0
-    weight: GV2
-    swtch: SE0
-    curve:
+mixData: 
+ -
+   weight: GV2
+   destCh: 0
+   srcRaw: I0
+   carryTrim: 0
+   mixWarn: 0
+   mltpx: ADD
+   offset: 0
+   swtch: "SF0"
+   flightModes: 000000000
+   curve: 
       type: 1
       value: GV3
-    delayUp: 0
-    delayDown: 0
-    speedUp: 0
-    speedDown: 0
-    carryTrim: 0
-    mltpx: ADD
-    mixWarn: 0
-    flightModes: 000000000
-    offset: 0
-    name: ""
-  - destCh: 0
-    srcRaw: I3
-    weight: GV2
-    swtch: SE2
-    curve:
+   delayUp: 0
+   delayDown: 0
+   speedUp: 0
+   speedDown: 0
+   name: ""
+ -
+   weight: GV2
+   destCh: 0
+   srcRaw: I3
+   carryTrim: 0
+   mixWarn: 0
+   mltpx: ADD
+   offset: 0
+   swtch: "SF2"
+   flightModes: 000000000
+   curve: 
       type: 1
       value: GV3
-    delayUp: 0
-    delayDown: 0
-    speedUp: 0
-    speedDown: 0
-    carryTrim: 0
-    mltpx: ADD
-    mixWarn: 0
-    flightModes: 000000000
-    offset: 0
-    name: Rud
-  - destCh: 1
-    srcRaw: I1
-    weight: GV4
-    swtch: SE0
-    curve:
+   delayUp: 0
+   delayDown: 0
+   speedUp: 0
+   speedDown: 0
+   name: "Rud"
+ -
+   weight: GV4
+   destCh: 1
+   srcRaw: I1
+   carryTrim: 0
+   mixWarn: 0
+   mltpx: ADD
+   offset: 0
+   swtch: "SE0"
+   flightModes: 000000000
+   curve: 
       type: 1
       value: GV5
-    delayUp: 0
-    delayDown: 0
-    speedUp: 0
-    speedDown: 0
-    carryTrim: 0
-    mltpx: ADD
-    mixWarn: 0
-    flightModes: 000000000
-    offset: 0
-    name: ""
-  - destCh: 1
-    srcRaw: I2
-    weight: GV4
-    swtch: SE2
-    curve:
+   delayUp: 0
+   delayDown: 0
+   speedUp: 0
+   speedDown: 0
+   name: ""
+ -
+   weight: GV4
+   destCh: 1
+   srcRaw: I2
+   carryTrim: 0
+   mixWarn: 0
+   mltpx: REPL
+   offset: 0
+   swtch: "SE2"
+   flightModes: 000000000
+   curve: 
       type: 1
       value: GV5
-    delayUp: 0
-    delayDown: 0
-    speedUp: 0
-    speedDown: 0
-    carryTrim: 0
-    mltpx: REPL
-    mixWarn: 0
-    flightModes: 000000000
-    offset: 0
-    name: ""
-limitData:
-  0:
-    min: 0
-    max: 0
-    revert: 0
-    offset: 0
-    ppmCenter: 0
-    symetrical: 0
-    name: Str
-    curve: 0
-  1:
-    min: 0
-    max: 0
-    revert: 0
-    offset: 0
-    ppmCenter: 0
-    symetrical: 0
-    name: Thr
-    curve: 0
-expoData:
-  - srcRaw: Ail
-    scale: 0
-    mode: 3
-    chn: 0
-    swtch: NONE
-    flightModes: 000000000
-    weight: 100
-    offset: 0
-    curve:
-      type: 0
-      value: 0
-    trimSource: 0
-    name: ""
-  - srcRaw: Thr
-    scale: 0
-    mode: 3
-    chn: 1
-    swtch: "!L11"
-    flightModes: 000000000
-    weight: 50
-    offset: 50
-    curve:
-      type: 0
-      value: 0
-    trimSource: 0
-    name: ""
-  - srcRaw: Thr
-    scale: 0
-    mode: 3
-    chn: 1
-    swtch: L11
-    flightModes: 000000000
-    weight: -50
-    offset: -50
-    curve:
-      type: 0
-      value: 0
-    trimSource: 0
-    name: ""
-  - srcRaw: Ele
-    scale: 0
-    mode: 3
-    chn: 2
-    swtch: NONE
-    flightModes: 000000000
-    weight: 100
-    offset: 0
-    curve:
-      type: 0
-      value: 0
-    trimSource: 0
-    name: ""
-  - srcRaw: Rud
-    scale: 0
-    mode: 3
-    chn: 3
-    swtch: NONE
-    flightModes: 000000000
-    weight: 100
-    offset: 0
-    curve:
-      type: 0
-      value: 0
-    trimSource: 0
-    name: ""
-  - srcRaw: SC
-    scale: 0
-    mode: 3
-    chn: 4
-    swtch: NONE
-    flightModes: 000000000
-    weight: 100
-    offset: 0
-    curve:
+   delayUp: 0
+   delayDown: 0
+   speedUp: 0
+   speedDown: 0
+   name: ""
+limitData: 
+   0:
+      min: 0
+      max: 0
+      ppmCenter: 0
+      offset: 0
+      symetrical: 0
+      revert: 0
+      curve: 0
+      name: "Str"
+   1:
+      min: 0
+      max: 0
+      ppmCenter: 0
+      offset: 0
+      symetrical: 0
+      revert: 0
+      curve: 0
+      name: "Thr"
+expoData: 
+ -
+   mode: 3
+   scale: 0
+   trimSource: -4
+   srcRaw: Ail
+   chn: 0
+   swtch: "NONE"
+   flightModes: 000000000
+   weight: 100
+   name: ""
+   offset: 0
+ -
+   mode: 3
+   scale: 0
+   trimSource: 0
+   srcRaw: Thr
+   chn: 1
+   swtch: "!L11"
+   flightModes: 000000000
+   weight: 50
+   name: ""
+   offset: 50
+ -
+   mode: 3
+   scale: 0
+   trimSource: 0
+   srcRaw: Thr
+   chn: 1
+   swtch: "L11"
+   flightModes: 000000000
+   weight: -50
+   name: ""
+   offset: -50
+ -
+   mode: 3
+   scale: 0
+   trimSource: 0
+   srcRaw: Ele
+   chn: 2
+   swtch: "NONE"
+   flightModes: 000000000
+   weight: 100
+   name: ""
+   offset: 0
+ -
+   mode: 3
+   scale: 0
+   trimSource: 0
+   srcRaw: Rud
+   chn: 3
+   swtch: "NONE"
+   flightModes: 000000000
+   weight: 100
+   name: ""
+   offset: 0
+ -
+   mode: 3
+   scale: 0
+   trimSource: 0
+   srcRaw: SC
+   chn: 4
+   swtch: "NONE"
+   flightModes: 000000000
+   weight: 100
+   name: ""
+   offset: 0
+   curve: 
       type: 3
       value: 1
-    trimSource: 0
-    name: ""
-  - srcRaw: SB
-    scale: 0
-    mode: 3
-    chn: 5
-    swtch: NONE
-    flightModes: 000000000
-    weight: 100
-    offset: 0
-    curve:
+ -
+   mode: 3
+   scale: 0
+   trimSource: 0
+   srcRaw: SB
+   chn: 5
+   swtch: "NONE"
+   flightModes: 000000000
+   weight: 100
+   name: ""
+   offset: 0
+   curve: 
       type: 3
       value: 2
-    trimSource: 0
-    name: ""
-  - srcRaw: POT1
-    scale: 0
-    mode: 3
-    chn: 6
-    swtch: NONE
-    flightModes: 000000000
-    weight: 100
-    offset: 0
-    curve:
+ -
+   mode: 3
+   scale: 0
+   trimSource: 0
+   srcRaw: POT1
+   chn: 6
+   swtch: "NONE"
+   flightModes: 000000000
+   weight: 100
+   name: ""
+   offset: 0
+   curve: 
       type: 3
       value: 4
-    trimSource: 0
-    name: ""
-  - srcRaw: POT2
-    scale: 0
-    mode: 3
-    chn: 7
-    swtch: NONE
-    flightModes: 000000000
-    weight: 100
-    offset: 0
-    curve:
+ -
+   mode: 3
+   scale: 0
+   trimSource: 0
+   srcRaw: POT2
+   chn: 7
+   swtch: "NONE"
+   flightModes: 000000000
+   weight: 100
+   name: ""
+   offset: 0
+   curve: 
       type: 3
       value: 3
-    trimSource: 0
-    name: ""
-inputNames:
-  0:
-    val: StA
-  1:
-    val: ThT
-  2:
-    val: ThE
-  3:
-    val: StR
-  4:
-    val: SRT
-  5:
-    val: TRT
-  6:
-    val: TEP
-  7:
-    val: SEP
-curves:
-  0:
-    type: 0
-    smooth: 0
-    points: -2
-    name: SRT
-  1:
-    type: 0
-    smooth: 0
-    points: -2
-    name: TRT
-  2:
-    type: 0
-    smooth: 0
-    points: -2
-    name: SEP
-  3:
-    type: 0
-    smooth: 0
-    points: -2
-    name: TEP
-points:
-  0:
-    val: 100
-  1:
-    val: 90
-  2:
-    val: 75
-  3:
-    val: 100
-  4:
-    val: 75
-  5:
-    val: 50
-  6:
-    val: 0
-  7:
-    val: 25
-  8:
-    val: 50
-  9:
-    val: 0
-  10:
-    val: 25
-  11:
-    val: 50
-logicalSw:
-  0:
-    func: FUNC_ANEG
-    def: I1,2
-    delay: 0
-    duration: 0
-    andsw: SD0
-  1:
-    func: FUNC_STICKY
-    def: L1,SD2
-    delay: 0
-    duration: 0
-    andsw: NONE
-  8:
-    func: FUNC_ANEG
-    def: I1,2
-    delay: 0
-    duration: 0
-    andsw: SA2
-  9:
-    func: FUNC_ANEG
-    def: I1,2
-    delay: 0
-    duration: 0
-    andsw: SA0
-  10:
-    func: FUNC_STICKY
-    def: L9,L10
-    delay: 0
-    duration: 0
-    andsw: NONE
-customFn:
-  0:
-    swtch: "!L2"
-    func: OVERRIDE_CHANNEL
-    def: 1,0,1
-  1:
-    swtch: "!L2"
-    func: PLAY_TRACK
-    def: thrcut,1x
-  2:
-    swtch: L2
-    func: PLAY_TRACK
-    def: thract,1x
-  4:
-    swtch: ON
-    func: ADJUST_GVAR
-    def: 2,Src,I7,1
-  5:
-    swtch: ON
-    func: ADJUST_GVAR
-    def: 4,Src,I6,1
-  6:
-    swtch: ON
-    func: ADJUST_GVAR
-    def: 3,Src,I5,1
-  7:
-    swtch: ON
-    func: ADJUST_GVAR
-    def: 1,Src,I4,1
-  9:
-    swtch: "!L11"
-    func: PLAY_TRACK
-    def: gearup,1x
-  10:
-    swtch: L11
-    func: PLAY_TRACK
-    def: geardn,1x
-swashR:
-  type: TYPE_NONE
-  value: 0
-  collectiveSource: NONE
-  aileronSource: NONE
-  elevatorSource: NONE
-  collectiveWeight: 0
-  aileronWeight: 0
-  elevatorWeight: 0
+curves: 
+   0:
+      type: 0
+      smooth: 0
+      points: -2
+      name: "SRT"
+   1:
+      type: 0
+      smooth: 0
+      points: -2
+      name: "TRT"
+   2:
+      type: 0
+      smooth: 0
+      points: -2
+      name: "SEP"
+   3:
+      type: 0
+      smooth: 0
+      points: -2
+      name: "TEP"
+points: 
+   0:
+      val: 100
+   1:
+      val: 90
+   2:
+      val: 75
+   3:
+      val: 100
+   4:
+      val: 75
+   5:
+      val: 50
+   7:
+      val: 25
+   8:
+      val: 50
+   10:
+      val: 25
+   11:
+      val: 50
+logicalSw: 
+   0:
+      func: FUNC_ANEG
+      def: "I1,2"
+      andsw: "SD0"
+      delay: 0
+      duration: 0
+   1:
+      func: FUNC_STICKY
+      def: "L1,SD2"
+      andsw: "NONE"
+      delay: 0
+      duration: 0
+   8:
+      func: FUNC_ANEG
+      def: "I1,2"
+      andsw: "SA2"
+      delay: 0
+      duration: 0
+   9:
+      func: FUNC_ANEG
+      def: "I1,2"
+      andsw: "SA0"
+      delay: 0
+      duration: 0
+   10:
+      func: FUNC_STICKY
+      def: "L9,L10"
+      andsw: "NONE"
+      delay: 0
+      duration: 0
+customFn: 
+   0:
+      swtch: "!L2"
+      func: OVERRIDE_CHANNEL
+      def: "1,0,1"
+   1:
+      swtch: "!L2"
+      func: PLAY_TRACK
+      def: "thrcut,1x"
+   2:
+      swtch: "L2"
+      func: PLAY_TRACK
+      def: "thract,1x"
+   4:
+      swtch: "ON"
+      func: ADJUST_GVAR
+      def: "2,Src,I7,1"
+   5:
+      swtch: "ON"
+      func: ADJUST_GVAR
+      def: "4,Src,I6,1"
+   6:
+      swtch: "ON"
+      func: ADJUST_GVAR
+      def: "3,Src,I5,1"
+   7:
+      swtch: "ON"
+      func: ADJUST_GVAR
+      def: "1,Src,I4,1"
+   9:
+      swtch: "!L11"
+      func: PLAY_TRACK
+      def: "gearup,1x"
+   10:
+      swtch: "L11"
+      func: PLAY_TRACK
+      def: "geardn,1x"
+flightModeData: 
+   0:
+      trim: 
+         2:
+            value: 0
+            mode: 31
+         3:
+            value: -170
+            mode: 0
+      name: "High"
+      swtch: "NONE"
+      fadeIn: 0
+      fadeOut: 0
+      gvars: 
+         0:
+            val: 0
+         1:
+            val: 90
+         2:
+            val: 25
+         3:
+            val: 75
+         4:
+            val: 45
+         5:
+            val: 0
+         6:
+            val: 0
+         7:
+            val: 0
+         8:
+            val: 0
+   1:
+      trim: 
+         2:
+            value: 0
+            mode: 31
+      name: "Mid"
+      swtch: "6P21"
+      fadeIn: 0
+      fadeOut: 0
+      gvars: 
+         0:
+            val: 1
+         1:
+            val: 75
+         2:
+            val: 20
+         3:
+            val: 50
+         4:
+            val: 20
+   2:
+      trim: 
+         2:
+            value: 0
+            mode: 31
+      name: "Low"
+      swtch: "6P22"
+      fadeIn: 0
+      fadeOut: 0
+      gvars: 
+         0:
+            val: 2
+         1:
+            val: 90
+         2:
+            val: 20
+         3:
+            val: 75
+         4:
+            val: 20
 thrTraceSrc: Thr
 switchWarningState: AuDd
+gvars: 
+   0:
+      name: "FM"
+      min: 0
+      max: 0
+      popup: 0
+      prec: 0
+      unit: 0
+   1:
+      name: "SRT"
+      min: 0
+      max: 0
+      popup: 0
+      prec: 0
+      unit: 0
+   2:
+      name: "SEP"
+      min: 0
+      max: 0
+      popup: 0
+      prec: 0
+      unit: 0
+   3:
+      name: "TRT"
+      min: 0
+      max: 0
+      popup: 0
+      prec: 0
+      unit: 0
+   4:
+      name: "TEP"
+      min: 0
+      max: 0
+      popup: 0
+      prec: 0
+      unit: 0
+rssiSource: none
+rfAlarms: 
+   warning: 45
+   critical: 42
 thrTrimSw: 0
 potsWarnMode: WARN_OFF
 jitterFilter: GLOBAL
+moduleData: 
+   1:
+      type: TYPE_CROSSFIRE
+      subType: 0
+      channelsStart: 0
+      channelsCount: 16
+      failsafeMode: NOT_SET
+      mod: 
+         crsf: 
+            telemetryBaudrate: 0
+trainerData: 
+   mode: MASTER_TRAINER_JACK
+   channelsStart: 0
+   channelsCount: -8
+   frameLength: 0
+   delay: 0
+   pulsePol: 0
+inputNames: 
+   0:
+      val: "StA"
+   1:
+      val: "ThT"
+   2:
+      val: "ThE"
+   3:
+      val: "StR"
+   4:
+      val: "SRT"
+   5:
+      val: "TRT"
+   6:
+      val: "TEP"
+   7:
+      val: "SEP"
 potsWarnEnabled: 0
-displayChecklist: 0
-gvars:
-  0:
-    name: FM
-    min: 0
-    max: 0
-    popup: 0
-    prec: 0
-    unit: 0
-  1:
-    name: SRT
-    min: 0
-    max: 0
-    popup: 0
-    prec: 0
-    unit: 0
-  2:
-    name: SEP
-    min: 0
-    max: 0
-    popup: 0
-    prec: 0
-    unit: 0
-  3:
-    name: TRT
-    min: 0
-    max: 0
-    popup: 0
-    prec: 0
-    unit: 0
-  4:
-    name: TEP
-    min: 0
-    max: 0
-    popup: 0
-    prec: 0
-    unit: 0
-telemetryProtocol: 0
-varioData:
-  source: none
-  centerSilent: 0
-  centerMax: 0
-  centerMin: 0
-  min: 0
-  max: 0
-rssiSource: none
-rfAlarms:
-  warning: 45
-  critical: 42
-disableTelemetryWarning: 0
-moduleData:
-  1:
-    type: TYPE_CROSSFIRE
-    channelsStart: 0
-    channelsCount: 16
-    failsafeMode: NOT_SET
-    mod:
-      crsf:
-        telemetryBaudrate: 0
-trainerData:
-  mode: MASTER_TRAINER_JACK
-  channelsStart: 0
-  channelsCount: -8
-  frameLength: 0
-  delay: 0
-  pulsePol: 0
-telemetrySensors:
-  0:
-    type: TYPE_CUSTOM
-    id1:
-      id: 20
-    subId: 0
-    id2:
-      instance: 0
-    label: 1RSS
-    unit: 17
-    prec: 0
-    autoOffset: 0
-    filter: 0
-    logs: 1
-    persistent: 0
-    onlyPositive: 0
-    cfg:
-      custom:
-        ratio: 0
-        offset: 0
-  1:
-    type: TYPE_CUSTOM
-    id1:
-      id: 20
-    subId: 0
-    id2:
-      instance: 1
-    label: 2RSS
-    unit: 17
-    prec: 0
-    autoOffset: 0
-    filter: 0
-    logs: 1
-    persistent: 0
-    onlyPositive: 0
-    cfg:
-      custom:
-        ratio: 0
-        offset: 0
-  2:
-    type: TYPE_CUSTOM
-    id1:
-      id: 20
-    subId: 0
-    id2:
-      instance: 2
-    label: RQly
-    unit: 13
-    prec: 0
-    autoOffset: 0
-    filter: 0
-    logs: 1
-    persistent: 0
-    onlyPositive: 0
-    cfg:
-      custom:
-        ratio: 0
-        offset: 0
-  3:
-    type: TYPE_CUSTOM
-    id1:
-      id: 20
-    subId: 0
-    id2:
-      instance: 3
-    label: RSNR
-    unit: 17
-    prec: 0
-    autoOffset: 0
-    filter: 0
-    logs: 1
-    persistent: 0
-    onlyPositive: 0
-    cfg:
-      custom:
-        ratio: 0
-        offset: 0
-  4:
-    type: TYPE_CUSTOM
-    id1:
-      id: 20
-    subId: 0
-    id2:
-      instance: 4
-    label: ANT
-    unit: 0
-    prec: 0
-    autoOffset: 0
-    filter: 0
-    logs: 1
-    persistent: 0
-    onlyPositive: 0
-    cfg:
-      custom:
-        ratio: 0
-        offset: 0
-  5:
-    type: TYPE_CUSTOM
-    id1:
-      id: 20
-    subId: 0
-    id2:
-      instance: 5
-    label: RFMD
-    unit: 0
-    prec: 0
-    autoOffset: 0
-    filter: 0
-    logs: 1
-    persistent: 0
-    onlyPositive: 0
-    cfg:
-      custom:
-        ratio: 0
-        offset: 0
-  6:
-    type: TYPE_CUSTOM
-    id1:
-      id: 20
-    subId: 0
-    id2:
-      instance: 6
-    label: TPWR
-    unit: 16
-    prec: 0
-    autoOffset: 0
-    filter: 0
-    logs: 1
-    persistent: 0
-    onlyPositive: 0
-    cfg:
-      custom:
-        ratio: 0
-        offset: 0
-  7:
-    type: TYPE_CUSTOM
-    id1:
-      id: 20
-    subId: 0
-    id2:
-      instance: 7
-    label: TRSS
-    unit: 17
-    prec: 0
-    autoOffset: 0
-    filter: 0
-    logs: 1
-    persistent: 0
-    onlyPositive: 0
-    cfg:
-      custom:
-        ratio: 0
-        offset: 0
-  8:
-    type: TYPE_CUSTOM
-    id1:
-      id: 20
-    subId: 0
-    id2:
-      instance: 8
-    label: TQly
-    unit: 13
-    prec: 0
-    autoOffset: 0
-    filter: 0
-    logs: 1
-    persistent: 0
-    onlyPositive: 0
-    cfg:
-      custom:
-        ratio: 0
-        offset: 0
-  9:
-    type: TYPE_CUSTOM
-    id1:
-      id: 20
-    subId: 0
-    id2:
-      instance: 9
-    label: TSNR
-    unit: 17
-    prec: 0
-    autoOffset: 0
-    filter: 0
-    logs: 1
-    persistent: 0
-    onlyPositive: 0
-    cfg:
-      custom:
-        ratio: 0
-        offset: 0
-  10:
-    type: TYPE_CUSTOM
-    id1:
-      id: 8
-    subId: 0
-    id2:
-      instance: 0
-    label: RxBt
-    unit: 1
-    prec: 1
-    autoOffset: 0
-    filter: 0
-    logs: 1
-    persistent: 0
-    onlyPositive: 0
-    cfg:
-      custom:
-        ratio: 0
-        offset: 0
-  11:
-    type: TYPE_CUSTOM
-    id1:
-      id: 8
-    subId: 0
-    id2:
-      instance: 1
-    label: Curr
-    unit: 2
-    prec: 1
-    autoOffset: 0
-    filter: 0
-    logs: 1
-    persistent: 0
-    onlyPositive: 0
-    cfg:
-      custom:
-        ratio: 0
-        offset: 0
-  12:
-    type: TYPE_CUSTOM
-    id1:
-      id: 8
-    subId: 0
-    id2:
-      instance: 2
-    label: Capa
-    unit: 14
-    prec: 0
-    autoOffset: 0
-    filter: 0
-    logs: 1
-    persistent: 0
-    onlyPositive: 0
-    cfg:
-      custom:
-        ratio: 0
-        offset: 0
-  13:
-    type: TYPE_CUSTOM
-    id1:
-      id: 8
-    subId: 0
-    id2:
-      instance: 3
-    label: Bat%
-    unit: 13
-    prec: 0
-    autoOffset: 0
-    filter: 0
-    logs: 1
-    persistent: 0
-    onlyPositive: 0
-    cfg:
-      custom:
-        ratio: 0
-        offset: 0
+telemetrySensors: 
+   0:
+      id1: 
+         id: 20
+      id2: 
+         instance: 0
+      label: "1RSS"
+      subId: 0
+      type: TYPE_CUSTOM
+      unit: 17
+      prec: 0
+      autoOffset: 0
+      filter: 0
+      logs: 1
+      persistent: 0
+      onlyPositive: 0
+      cfg: 
+         custom: 
+            ratio: 0
+            offset: 0
+   1:
+      id1: 
+         id: 20
+      id2: 
+         instance: 1
+      label: "2RSS"
+      subId: 0
+      type: TYPE_CUSTOM
+      unit: 17
+      prec: 0
+      autoOffset: 0
+      filter: 0
+      logs: 1
+      persistent: 0
+      onlyPositive: 0
+      cfg: 
+         custom: 
+            ratio: 0
+            offset: 0
+   2:
+      id1: 
+         id: 20
+      id2: 
+         instance: 2
+      label: "RQly"
+      subId: 0
+      type: TYPE_CUSTOM
+      unit: 13
+      prec: 0
+      autoOffset: 0
+      filter: 0
+      logs: 1
+      persistent: 0
+      onlyPositive: 0
+      cfg: 
+         custom: 
+            ratio: 0
+            offset: 0
+   3:
+      id1: 
+         id: 20
+      id2: 
+         instance: 3
+      label: "RSNR"
+      subId: 0
+      type: TYPE_CUSTOM
+      unit: 17
+      prec: 0
+      autoOffset: 0
+      filter: 0
+      logs: 1
+      persistent: 0
+      onlyPositive: 0
+      cfg: 
+         custom: 
+            ratio: 0
+            offset: 0
+   4:
+      id1: 
+         id: 20
+      id2: 
+         instance: 4
+      label: "ANT"
+      subId: 0
+      type: TYPE_CUSTOM
+      unit: 0
+      prec: 0
+      autoOffset: 0
+      filter: 0
+      logs: 1
+      persistent: 0
+      onlyPositive: 0
+      cfg: 
+         custom: 
+            ratio: 0
+            offset: 0
+   5:
+      id1: 
+         id: 20
+      id2: 
+         instance: 5
+      label: "RFMD"
+      subId: 0
+      type: TYPE_CUSTOM
+      unit: 0
+      prec: 0
+      autoOffset: 0
+      filter: 0
+      logs: 1
+      persistent: 0
+      onlyPositive: 0
+      cfg: 
+         custom: 
+            ratio: 0
+            offset: 0
+   6:
+      id1: 
+         id: 20
+      id2: 
+         instance: 6
+      label: "TPWR"
+      subId: 0
+      type: TYPE_CUSTOM
+      unit: 16
+      prec: 0
+      autoOffset: 0
+      filter: 0
+      logs: 1
+      persistent: 0
+      onlyPositive: 0
+      cfg: 
+         custom: 
+            ratio: 0
+            offset: 0
+   7:
+      id1: 
+         id: 20
+      id2: 
+         instance: 7
+      label: "TRSS"
+      subId: 0
+      type: TYPE_CUSTOM
+      unit: 17
+      prec: 0
+      autoOffset: 0
+      filter: 0
+      logs: 1
+      persistent: 0
+      onlyPositive: 0
+      cfg: 
+         custom: 
+            ratio: 0
+            offset: 0
+   8:
+      id1: 
+         id: 20
+      id2: 
+         instance: 8
+      label: "TQly"
+      subId: 0
+      type: TYPE_CUSTOM
+      unit: 13
+      prec: 0
+      autoOffset: 0
+      filter: 0
+      logs: 1
+      persistent: 0
+      onlyPositive: 0
+      cfg: 
+         custom: 
+            ratio: 0
+            offset: 0
+   9:
+      id1: 
+         id: 20
+      id2: 
+         instance: 9
+      label: "TSNR"
+      subId: 0
+      type: TYPE_CUSTOM
+      unit: 17
+      prec: 0
+      autoOffset: 0
+      filter: 0
+      logs: 1
+      persistent: 0
+      onlyPositive: 0
+      cfg: 
+         custom: 
+            ratio: 0
+            offset: 0
+   10:
+      id1: 
+         id: 8
+      id2: 
+         instance: 0
+      label: "RxBt"
+      subId: 0
+      type: TYPE_CUSTOM
+      unit: 1
+      prec: 1
+      autoOffset: 0
+      filter: 0
+      logs: 1
+      persistent: 0
+      onlyPositive: 0
+      cfg: 
+         custom: 
+            ratio: 0
+            offset: 0
+   11:
+      id1: 
+         id: 8
+      id2: 
+         instance: 1
+      label: "Curr"
+      subId: 0
+      type: TYPE_CUSTOM
+      unit: 2
+      prec: 1
+      autoOffset: 0
+      filter: 0
+      logs: 1
+      persistent: 0
+      onlyPositive: 0
+      cfg: 
+         custom: 
+            ratio: 0
+            offset: 0
+   12:
+      id1: 
+         id: 8
+      id2: 
+         instance: 2
+      label: "Capa"
+      subId: 0
+      type: TYPE_CUSTOM
+      unit: 14
+      prec: 0
+      autoOffset: 0
+      filter: 0
+      logs: 1
+      persistent: 0
+      onlyPositive: 0
+      cfg: 
+         custom: 
+            ratio: 0
+            offset: 0
+   13:
+      id1: 
+         id: 8
+      id2: 
+         instance: 3
+      label: "Bat%"
+      subId: 0
+      type: TYPE_CUSTOM
+      unit: 13
+      prec: 0
+      autoOffset: 0
+      filter: 0
+      logs: 1
+      persistent: 0
+      onlyPositive: 0
+      cfg: 
+         custom: 
+            ratio: 0
+            offset: 0
+view: 0
 modelRegistrationID: " 692XAP-"
 usbJoystickExtMode: 0
 usbJoystickIfMode: JOYSTICK
