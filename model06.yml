@@ -34,8 +34,12 @@ flightModeData:
     gvars:
       1:
         val: 100
+      2:
+        val: 20
       3:
         val: 100
+      4:
+        val: 20
   1:
     trim:
       2:
@@ -51,11 +55,11 @@ flightModeData:
       1:
         val: 75
       2:
-        val: 0
+        val: 20
       3:
         val: 50
       4:
-        val: 0
+        val: 20
   2:
     trim:
       2:
@@ -71,16 +75,16 @@ flightModeData:
       1:
         val: 90
       2:
-        val: 0
+        val: 20
       3:
         val: 75
       4:
-        val: 0
+        val: 20
 mixData:
   - destCh: 0
     srcRaw: I0
     weight: GV2
-    swtch: NONE
+    swtch: SE0
     curve:
       type: 1
       value: GV3
@@ -94,10 +98,27 @@ mixData:
     flightModes: 000000000
     offset: 0
     name: ""
+  - destCh: 0
+    srcRaw: I3
+    weight: GV2
+    swtch: SE2
+    curve:
+      type: 1
+      value: GV3
+    delayUp: 0
+    delayDown: 0
+    speedUp: 0
+    speedDown: 0
+    carryTrim: 0
+    mltpx: ADD
+    mixWarn: 0
+    flightModes: 000000000
+    offset: 0
+    name: Rud
   - destCh: 1
     srcRaw: I1
     weight: GV4
-    swtch: NONE
+    swtch: SE0
     curve:
       type: 1
       value: GV5
@@ -112,12 +133,12 @@ mixData:
     offset: 0
     name: ""
   - destCh: 1
-    srcRaw: MAX
-    weight: 0
-    swtch: "!L2"
+    srcRaw: I2
+    weight: GV4
+    swtch: SE2
     curve:
-      type: 0
-      value: 0
+      type: 1
+      value: GV5
     delayUp: 0
     delayDown: 0
     speedUp: 0
@@ -127,7 +148,7 @@ mixData:
     mixWarn: 0
     flightModes: 000000000
     offset: 0
-    name: Cut
+    name: ""
 limitData:
   0:
     min: 0
@@ -187,6 +208,32 @@ expoData:
       value: 0
     trimSource: 0
     name: ""
+  - srcRaw: Ele
+    scale: 0
+    mode: 3
+    chn: 2
+    swtch: NONE
+    flightModes: 000000000
+    weight: 100
+    offset: 0
+    curve:
+      type: 0
+      value: 0
+    trimSource: 0
+    name: ""
+  - srcRaw: Rud
+    scale: 0
+    mode: 3
+    chn: 3
+    swtch: NONE
+    flightModes: 000000000
+    weight: 100
+    offset: 0
+    curve:
+      type: 0
+      value: 0
+    trimSource: 0
+    name: ""
   - srcRaw: SC
     scale: 0
     mode: 3
@@ -200,7 +247,7 @@ expoData:
       value: 1
     trimSource: 0
     name: ""
-  - srcRaw: SC
+  - srcRaw: SB
     scale: 0
     mode: 3
     chn: 5
@@ -213,15 +260,49 @@ expoData:
       value: 2
     trimSource: 0
     name: ""
+  - srcRaw: POT1
+    scale: 0
+    mode: 3
+    chn: 6
+    swtch: NONE
+    flightModes: 000000000
+    weight: 100
+    offset: 0
+    curve:
+      type: 3
+      value: 4
+    trimSource: 0
+    name: ""
+  - srcRaw: POT2
+    scale: 0
+    mode: 3
+    chn: 7
+    swtch: NONE
+    flightModes: 000000000
+    weight: 100
+    offset: 0
+    curve:
+      type: 3
+      value: 3
+    trimSource: 0
+    name: ""
 inputNames:
   0:
-    val: Ail
+    val: StA
   1:
-    val: Thr
+    val: ThT
+  2:
+    val: ThE
+  3:
+    val: StR
   4:
     val: SRT
   5:
     val: TRT
+  6:
+    val: TEP
+  7:
+    val: SEP
 curves:
   0:
     type: 0
@@ -233,19 +314,41 @@ curves:
     smooth: 0
     points: -2
     name: TRT
+  2:
+    type: 0
+    smooth: 0
+    points: -2
+    name: SEP
+  3:
+    type: 0
+    smooth: 0
+    points: -2
+    name: TEP
 points:
   0:
-    val: 75
+    val: 100
   1:
     val: 90
   2:
-    val: 100
+    val: 75
   3:
-    val: 50
+    val: 100
   4:
     val: 75
   5:
-    val: 100
+    val: 50
+  6:
+    val: 0
+  7:
+    val: 25
+  8:
+    val: 50
+  9:
+    val: 0
+  10:
+    val: 25
+  11:
+    val: 50
 logicalSw:
   0:
     func: FUNC_ANEG
@@ -280,12 +383,32 @@ logicalSw:
 customFn:
   0:
     swtch: "!L2"
+    func: OVERRIDE_CHANNEL
+    def: 1,0,1
+  1:
+    swtch: "!L2"
     func: PLAY_TRACK
     def: thrcut,1x
-  1:
+  2:
     swtch: L2
     func: PLAY_TRACK
     def: thract,1x
+  4:
+    swtch: ON
+    func: ADJUST_GVAR
+    def: 2,Src,I7,1
+  5:
+    swtch: ON
+    func: ADJUST_GVAR
+    def: 4,Src,I6,1
+  6:
+    swtch: ON
+    func: ADJUST_GVAR
+    def: 3,Src,I5,1
+  7:
+    swtch: ON
+    func: ADJUST_GVAR
+    def: 1,Src,I4,1
   9:
     swtch: "!L11"
     func: PLAY_TRACK
