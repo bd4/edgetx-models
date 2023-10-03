@@ -32,6 +32,42 @@ beepANACenter: 0
 extendedLimits: 0
 extendedTrims: 0
 throttleReversed: 0
+flightModeData:
+  0:
+    trim:
+      2:
+        value: 0
+        mode: 31
+    name: Angle
+    fadeIn: 0
+    fadeOut: 0
+  1:
+    trim:
+      2:
+        value: 0
+        mode: 31
+    swtch: SB1
+    name: Horizon
+    fadeIn: 0
+    fadeOut: 0
+  2:
+    trim:
+      0:
+        value: 0
+        mode: 4
+      1:
+        value: 0
+        mode: 4
+      2:
+        value: 0
+        mode: 31
+      3:
+        value: 0
+        mode: 4
+    swtch: "!SB2"
+    name: Acro
+    fadeIn: 0
+    fadeOut: 0
 mixData:
   - destCh: 0
     srcRaw: I0
@@ -136,7 +172,75 @@ mixData:
     offset: 0
     name: ""
   - destCh: 6
-    srcRaw: ch(6)
+    srcRaw: I6
+    weight: 100
+    swtch: NONE
+    curve:
+      type: 0
+      value: 0
+    delayUp: 0
+    delayDown: 0
+    speedUp: 0
+    speedDown: 0
+    carryTrim: 0
+    mltpx: ADD
+    mixWarn: 0
+    flightModes: 000000000
+    offset: 0
+    name: ""
+  - destCh: 7
+    srcRaw: I7
+    weight: 100
+    swtch: NONE
+    curve:
+      type: 0
+      value: 0
+    delayUp: 0
+    delayDown: 0
+    speedUp: 0
+    speedDown: 0
+    carryTrim: 0
+    mltpx: ADD
+    mixWarn: 0
+    flightModes: 000000000
+    offset: 0
+    name: BEEP
+  - destCh: 8
+    srcRaw: I8
+    weight: 100
+    swtch: NONE
+    curve:
+      type: 0
+      value: 0
+    delayUp: 0
+    delayDown: 0
+    speedUp: 0
+    speedDown: 0
+    carryTrim: 0
+    mltpx: ADD
+    mixWarn: 0
+    flightModes: 000000000
+    offset: 0
+    name: ""
+  - destCh: 9
+    srcRaw: I9
+    weight: 100
+    swtch: NONE
+    curve:
+      type: 0
+      value: 0
+    delayUp: 0
+    delayDown: 0
+    speedUp: 0
+    speedDown: 0
+    carryTrim: 0
+    mltpx: ADD
+    mixWarn: 0
+    flightModes: 000000000
+    offset: 0
+    name: ""
+  - destCh: 10
+    srcRaw: I10
     weight: 100
     swtch: NONE
     curve:
@@ -215,6 +319,42 @@ limitData:
     ppmCenter: 0
     symetrical: 0
     name: TURT
+    curve: 0
+  7:
+    min: 23
+    max: -23
+    revert: 0
+    offset: 0
+    ppmCenter: 0
+    symetrical: 0
+    name: BEEP
+    curve: 0
+  8:
+    min: 23
+    max: -23
+    revert: 0
+    offset: 0
+    ppmCenter: 0
+    symetrical: 0
+    name: OSD
+    curve: 0
+  9:
+    min: 23
+    max: -23
+    revert: 0
+    offset: 0
+    ppmCenter: 0
+    symetrical: 0
+    name: VCHN
+    curve: 0
+  10:
+    min: 23
+    max: -23
+    revert: 0
+    offset: 0
+    ppmCenter: 0
+    symetrical: 0
+    name: VPOW
     curve: 0
 expoData:
   - srcRaw: Ail
@@ -308,6 +448,58 @@ expoData:
       value: 0
     trimSource: 0
     name: ""
+  - srcRaw: SE
+    scale: 0
+    mode: 3
+    chn: 7
+    swtch: NONE
+    flightModes: 000000000
+    weight: 100
+    offset: 0
+    curve:
+      type: 0
+      value: 0
+    trimSource: 0
+    name: ""
+  - srcRaw: SA
+    scale: 0
+    mode: 3
+    chn: 8
+    swtch: NONE
+    flightModes: 000000000
+    weight: 100
+    offset: 0
+    curve:
+      type: 0
+      value: 0
+    trimSource: 0
+    name: ""
+  - srcRaw: POT3
+    scale: 0
+    mode: 3
+    chn: 9
+    swtch: NONE
+    flightModes: 000000000
+    weight: 100
+    offset: 0
+    curve:
+      type: 0
+      value: 0
+    trimSource: 0
+    name: ""
+  - srcRaw: SC
+    scale: 0
+    mode: 3
+    chn: 10
+    swtch: NONE
+    flightModes: 000000000
+    weight: 100
+    offset: 0
+    curve:
+      type: 0
+      value: 0
+    trimSource: 0
+    name: ""
 inputNames:
   0:
     val: Ail
@@ -323,6 +515,87 @@ inputNames:
     val: FM
   6:
     val: TUR
+  7:
+    val: BEE
+  8:
+    val: OSD
+  9:
+    val: VCH
+  10:
+    val: VPW
+customFn:
+  0:
+    swtch: SD0
+    func: PLAY_TRACK
+    def: armed,1x
+  1:
+    swtch: SD2
+    func: PLAY_TRACK
+    def: disarm,!1x
+  2:
+    swtch: SB0
+    func: PLAY_TRACK
+    def: angmod,!1x
+  3:
+    swtch: SB1
+    func: PLAY_TRACK
+    def: hznmod,1x
+  4:
+    swtch: SB2
+    func: PLAY_TRACK
+    def: acrmod,1x
+  5:
+    swtch: SA0
+    func: PLAY_TRACK
+    def: osdon,!1x
+  6:
+    swtch: SA0
+    func: PLAY_TRACK
+    def: osdoff,1x
+  7:
+    swtch: SF2
+    func: PLAY_TRACK
+    def: turton,1x
+  8:
+    swtch: SF0
+    func: PLAY_TRACK
+    def: turtof,!1x
+  9:
+    swtch: SC0
+    func: PLAY_TRACK
+    def: vtx25,!1x
+  10:
+    swtch: SC1
+    func: PLAY_TRACK
+    def: vtx100,1x
+  11:
+    swtch: SC2
+    func: PLAY_TRACK
+    def: vtx400,1x
+  12:
+    swtch: 6P20
+    func: PLAY_TRACK
+    def: vtxfr2,!1x
+  13:
+    swtch: 6P21
+    func: PLAY_TRACK
+    def: vtxfr3,1x
+  14:
+    swtch: 6P22
+    func: PLAY_TRACK
+    def: vtxfr4,1x
+  15:
+    swtch: 6P23
+    func: PLAY_TRACK
+    def: vtxfr5,1x
+  16:
+    swtch: 6P24
+    func: PLAY_TRACK
+    def: vtxfr6,1x
+  17:
+    swtch: 6P25
+    func: PLAY_TRACK
+    def: vtxfr7,1x
 swashR:
   type: TYPE_NONE
   value: 0
@@ -333,7 +606,7 @@ swashR:
   aileronWeight: 0
   elevatorWeight: 0
 thrTraceSrc: ch(2)
-switchWarningState: Dd
+switchWarningState: BuDdEu
 thrTrimSw: 0
 potsWarnMode: WARN_OFF
 jitterFilter: GLOBAL
@@ -368,13 +641,13 @@ trainerData:
   frameLength: 0
   delay: 0
   pulsePol: 0
-modelRegistrationID: ""
+modelRegistrationID: " 692XAP-"
 usbJoystickExtMode: 0
 usbJoystickIfMode: JOYSTICK
 usbJoystickCircularCut: 0
 radioGFDisabled: GLOBAL
 radioTrainerDisabled: GLOBAL
-modelHeliDisabled: GLOBAL
+modelHeliDisabled: OFF
 modelFMDisabled: GLOBAL
 modelCurvesDisabled: GLOBAL
 modelGVDisabled: GLOBAL
