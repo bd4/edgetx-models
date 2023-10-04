@@ -47,7 +47,7 @@ flightModeData:
         value: 0
         mode: 31
     swtch: SB1
-    name: Horizon
+    name: Horizo
     fadeIn: 0
     fadeOut: 0
   2:
@@ -256,6 +256,23 @@ mixData:
     flightModes: 000000000
     offset: 0
     name: ""
+  - destCh: 11
+    srcRaw: I11
+    weight: 100
+    swtch: NONE
+    curve:
+      type: 0
+      value: 0
+    delayUp: 0
+    delayDown: 0
+    speedUp: 0
+    speedDown: 0
+    carryTrim: 0
+    mltpx: ADD
+    mixWarn: 0
+    flightModes: 000000000
+    offset: 0
+    name: ""
 limitData:
   0:
     min: 23
@@ -355,6 +372,15 @@ limitData:
     ppmCenter: 0
     symetrical: 0
     name: VPOW
+    curve: 0
+  11:
+    min: 23
+    max: -23
+    revert: 0
+    offset: 0
+    ppmCenter: 0
+    symetrical: 0
+    name: PIT
     curve: 0
 expoData:
   - srcRaw: Ail
@@ -500,6 +526,19 @@ expoData:
       value: 0
     trimSource: 0
     name: ""
+  - srcRaw: ls(17)
+    scale: 0
+    mode: 3
+    chn: 11
+    swtch: NONE
+    flightModes: 000000000
+    weight: 100
+    offset: 0
+    curve:
+      type: 0
+      value: 0
+    trimSource: 0
+    name: ""
 inputNames:
   0:
     val: Ail
@@ -523,6 +562,51 @@ inputNames:
     val: VCH
   10:
     val: VPW
+  11:
+    val: PIT
+logicalSw:
+  9:
+    func: FUNC_EDGE
+    def: TrimThrUp,0,8
+    delay: 0
+    duration: 0
+    andsw: NONE
+  10:
+    func: FUNC_EDGE
+    def: TrimThrUp,10,20
+    delay: 0
+    duration: 0
+    andsw: NONE
+  11:
+    func: FUNC_EDGE
+    def: TrimThrUp,20,-
+    delay: 0
+    duration: 0
+    andsw: NONE
+  13:
+    func: FUNC_EDGE
+    def: TrimThrDown,0,8
+    delay: 0
+    duration: 0
+    andsw: NONE
+  14:
+    func: FUNC_EDGE
+    def: TrimThrDown,10,20
+    delay: 0
+    duration: 0
+    andsw: NONE
+  15:
+    func: FUNC_EDGE
+    def: TrimThrDown,20,-
+    delay: 0
+    duration: 0
+    andsw: NONE
+  16:
+    func: FUNC_STICKY
+    def: L16,L16
+    delay: 0
+    duration: 0
+    andsw: NONE
 customFn:
   0:
     swtch: SD0
@@ -596,6 +680,30 @@ customFn:
     swtch: 6P25
     func: PLAY_TRACK
     def: vtxfr7,1x
+  18:
+    swtch: TrimThrUp
+    func: PLAY_SOUND
+    def: Bp1,1
+  19:
+    swtch: L12
+    func: RESET
+    def: Tmr1,1
+  20:
+    swtch: L12
+    func: PLAY_TRACK
+    def: timrs1,1x
+  23:
+    swtch: TrimThrDown
+    func: PLAY_SOUND
+    def: Bp3,1
+  27:
+    swtch: L17
+    func: PLAY_TRACK
+    def: pitmod,1x
+  28:
+    swtch: "!L17"
+    func: PLAY_TRACK
+    def: vtxon,!1x
 swashR:
   type: TYPE_NONE
   value: 0
@@ -613,6 +721,30 @@ jitterFilter: GLOBAL
 potsWarnEnabled: 0
 displayChecklist: 0
 telemetryProtocol: 0
+screens:
+  0:
+    type: VALUES
+    u:
+      lines:
+        0:
+          sources:
+            0:
+              val: tele(2)
+            1:
+              val: tele(8)
+        1:
+          sources:
+            0:
+              val: tele(3)
+            1:
+              val: tele(9)
+        2:
+          sources:
+            0:
+              val: tele(0)
+            1:
+              val: tele(6)
+        3: ~
 varioData:
   source: none
   centerSilent: 0
@@ -641,6 +773,197 @@ trainerData:
   frameLength: 0
   delay: 0
   pulsePol: 0
+telemetrySensors:
+  0:
+    type: TYPE_CUSTOM
+    id1:
+      id: 20
+    subId: 0
+    id2:
+      instance: 0
+    label: 1RSS
+    unit: 17
+    prec: 0
+    autoOffset: 0
+    filter: 0
+    logs: 1
+    persistent: 0
+    onlyPositive: 0
+    cfg:
+      custom:
+        ratio: 0
+        offset: 0
+  1:
+    type: TYPE_CUSTOM
+    id1:
+      id: 20
+    subId: 0
+    id2:
+      instance: 1
+    label: 2RSS
+    unit: 17
+    prec: 0
+    autoOffset: 0
+    filter: 0
+    logs: 1
+    persistent: 0
+    onlyPositive: 0
+    cfg:
+      custom:
+        ratio: 0
+        offset: 0
+  2:
+    type: TYPE_CUSTOM
+    id1:
+      id: 20
+    subId: 0
+    id2:
+      instance: 2
+    label: RQly
+    unit: 13
+    prec: 0
+    autoOffset: 0
+    filter: 0
+    logs: 1
+    persistent: 0
+    onlyPositive: 0
+    cfg:
+      custom:
+        ratio: 0
+        offset: 0
+  3:
+    type: TYPE_CUSTOM
+    id1:
+      id: 20
+    subId: 0
+    id2:
+      instance: 3
+    label: RSNR
+    unit: 17
+    prec: 0
+    autoOffset: 0
+    filter: 0
+    logs: 1
+    persistent: 0
+    onlyPositive: 0
+    cfg:
+      custom:
+        ratio: 0
+        offset: 0
+  4:
+    type: TYPE_CUSTOM
+    id1:
+      id: 20
+    subId: 0
+    id2:
+      instance: 4
+    label: ANT
+    unit: 0
+    prec: 0
+    autoOffset: 0
+    filter: 0
+    logs: 1
+    persistent: 0
+    onlyPositive: 0
+    cfg:
+      custom:
+        ratio: 0
+        offset: 0
+  5:
+    type: TYPE_CUSTOM
+    id1:
+      id: 20
+    subId: 0
+    id2:
+      instance: 5
+    label: RFMD
+    unit: 0
+    prec: 0
+    autoOffset: 0
+    filter: 0
+    logs: 1
+    persistent: 0
+    onlyPositive: 0
+    cfg:
+      custom:
+        ratio: 0
+        offset: 0
+  6:
+    type: TYPE_CUSTOM
+    id1:
+      id: 20
+    subId: 0
+    id2:
+      instance: 6
+    label: TPWR
+    unit: 16
+    prec: 0
+    autoOffset: 0
+    filter: 0
+    logs: 1
+    persistent: 0
+    onlyPositive: 0
+    cfg:
+      custom:
+        ratio: 0
+        offset: 0
+  7:
+    type: TYPE_CUSTOM
+    id1:
+      id: 20
+    subId: 0
+    id2:
+      instance: 7
+    label: TRSS
+    unit: 17
+    prec: 0
+    autoOffset: 0
+    filter: 0
+    logs: 1
+    persistent: 0
+    onlyPositive: 0
+    cfg:
+      custom:
+        ratio: 0
+        offset: 0
+  8:
+    type: TYPE_CUSTOM
+    id1:
+      id: 20
+    subId: 0
+    id2:
+      instance: 8
+    label: TQly
+    unit: 13
+    prec: 0
+    autoOffset: 0
+    filter: 0
+    logs: 1
+    persistent: 0
+    onlyPositive: 0
+    cfg:
+      custom:
+        ratio: 0
+        offset: 0
+  9:
+    type: TYPE_CUSTOM
+    id1:
+      id: 20
+    subId: 0
+    id2:
+      instance: 9
+    label: TSNR
+    unit: 17
+    prec: 0
+    autoOffset: 0
+    filter: 0
+    logs: 1
+    persistent: 0
+    onlyPositive: 0
+    cfg:
+      custom:
+        ratio: 0
+        offset: 0
 modelRegistrationID: " 692XAP-"
 usbJoystickExtMode: 0
 usbJoystickIfMode: JOYSTICK
