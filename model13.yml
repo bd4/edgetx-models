@@ -38,7 +38,7 @@ flightModeData:
       2:
         value: 0
         mode: 31
-    name: Horiz
+    name: Angle
     fadeIn: 0
     fadeOut: 0
   1:
@@ -75,6 +75,42 @@ flightModeData:
         mode: 4
     swtch: 6P22
     name: Manual
+    fadeIn: 0
+    fadeOut: 0
+  3:
+    trim:
+      2:
+        value: 0
+        mode: 31
+    swtch: 6P23
+    name: Cruise
+    fadeIn: 0
+    fadeOut: 0
+  4:
+    trim:
+      2:
+        value: 0
+        mode: 31
+    swtch: 6P24
+    name: Hold
+    fadeIn: 0
+    fadeOut: 0
+  5:
+    trim:
+      0:
+        value: 0
+        mode: 2
+      1:
+        value: 0
+        mode: 2
+      2:
+        value: 0
+        mode: 31
+      3:
+        value: 0
+        mode: 2
+    swtch: 6P25
+    name: AcrTun
     fadeIn: 0
     fadeOut: 0
 mixData:
@@ -319,7 +355,7 @@ limitData:
     offset: 0
     ppmCenter: 0
     symetrical: 0
-    name: TUN
+    name: HLD
     curve: 0
   8:
     min: 23
@@ -454,7 +490,7 @@ expoData:
       value: 0
     trimSource: 0
     name: ""
-  - srcRaw: SF
+  - srcRaw: SE
     scale: 0
     mode: 3
     chn: 6
@@ -467,7 +503,7 @@ expoData:
       value: 0
     trimSource: 0
     name: ""
-  - srcRaw: SE
+  - srcRaw: SC
     scale: 0
     mode: 3
     chn: 7
@@ -522,11 +558,88 @@ inputNames:
   6:
     val: RTH
   7:
-    val: TUN
+    val: HLD
   10:
     val: Rev
   12:
     val: FLP
+customFn:
+  0:
+    swtch: SD0
+    func: PLAY_TRACK
+    def: thract,1x
+  1:
+    swtch: SD2
+    func: PLAY_TRACK
+    def: thrcut,!1x
+  2:
+    swtch: SA0
+    func: PLAY_TRACK
+    def: gearup,!1x
+  3:
+    swtch: SA0
+    func: PLAY_TRACK
+    def: geardn,1x
+  4:
+    swtch: SF2
+    func: OVERRIDE_CHANNEL
+    def: 5,-100,1
+  5:
+    swtch: SF2
+    func: PLAY_TRACK
+    def: angmod,1x
+  6:
+    swtch: 6P20
+    func: PLAY_TRACK
+    def: angmod,!1x
+  7:
+    swtch: 6P21
+    func: PLAY_TRACK
+    def: acrmod,1x
+  8:
+    swtch: 6P22
+    func: PLAY_TRACK
+    def: manmod,1x
+  9:
+    swtch: 6P23
+    func: PLAY_TRACK
+    def: navcrs,1x
+  10:
+    swtch: 6P24
+    func: PLAY_TRACK
+    def: navcsh,1x
+  11:
+    swtch: 6P25
+    func: PLAY_TRACK
+    def: auto,1x
+  12:
+    swtch: SE2
+    func: PLAY_TRACK
+    def: navrth,1x
+  13:
+    swtch: SE0
+    func: PLAY_TRACK
+    def: off,!1x
+  14:
+    swtch: SB0
+    func: PLAY_TRACK
+    def: flapup,!1x
+  15:
+    swtch: SB1
+    func: PLAY_TRACK
+    def: flapdn,1x
+  16:
+    swtch: SB1
+    func: PLAY_VALUE
+    def: SB,1x
+  17:
+    swtch: SB2
+    func: PLAY_TRACK
+    def: flapdn,1x
+  18:
+    swtch: SB2
+    func: PLAY_VALUE
+    def: SB,1x
 swashR:
   type: TYPE_NONE
   value: 0
@@ -554,25 +667,25 @@ screens:
             0:
               val: tele(10)
             1:
-              val: tele(2)
+              val: tele(22)
         1:
           sources:
             0:
-              val: tele(11)
+              val: tele(2)
             1:
               val: tele(18)
         2:
           sources:
             0:
-              val: TX_VOLTAGE
+              val: tele(13)
             1:
               val: tele(20)
         3:
           sources:
             0:
-              val: tele(13)
+              val: TX_TIME
             1:
-              val: tele(22)
+              val: TIMER1
 varioData:
   source: none
   centerSilent: 0
@@ -1064,7 +1177,7 @@ usbJoystickIfMode: JOYSTICK
 usbJoystickCircularCut: 0
 radioGFDisabled: GLOBAL
 radioTrainerDisabled: GLOBAL
-modelHeliDisabled: GLOBAL
+modelHeliDisabled: OFF
 modelFMDisabled: GLOBAL
 modelCurvesDisabled: GLOBAL
 modelGVDisabled: GLOBAL
