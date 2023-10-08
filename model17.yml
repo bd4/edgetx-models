@@ -1,6 +1,9 @@
 semver: 2.9.0
 header: 
-   name: "BLUE"
+   name: "WingsSim"
+   modelId: 
+      1:
+         val: 21
 telemetryProtocol: 0
 thrTrim: 0
 noGlobalFunctions: 0
@@ -13,7 +16,7 @@ extendedLimits: 0
 extendedTrims: 0
 throttleReversed: 0
 enableCustomThrottleWarning: 0
-disableTelemetryWarning: 0
+disableTelemetryWarning: 1
 showInstanceIds: 0
 customThrottleWarningPosition: 0
 beepANACenter: 0
@@ -413,7 +416,49 @@ expoData:
    trimSource: -4
    srcRaw: ch(20)
    chn: 0
-   swtch: "NONE"
+   swtch: "SC0"
+   flightModes: 000000000
+   weight: 100
+   name: ""
+   offset: 0
+   curve: 
+      type: 1
+      value: 0
+ -
+   mode: 3
+   scale: 0
+   trimSource: -4
+   srcRaw: ch(20)
+   chn: 0
+   swtch: "SC1"
+   flightModes: 000000000
+   weight: 90
+   name: ""
+   offset: 0
+   curve: 
+      type: 1
+      value: 25
+ -
+   mode: 3
+   scale: 0
+   trimSource: -4
+   srcRaw: ch(20)
+   chn: 0
+   swtch: "SC2"
+   flightModes: 000000000
+   weight: 70
+   name: ""
+   offset: 0
+   curve: 
+      type: 1
+      value: 25
+ -
+   mode: 3
+   scale: 0
+   trimSource: -2
+   srcRaw: ch(21)
+   chn: 1
+   swtch: "SC0"
    flightModes: 000000000
    weight: 100
    name: ""
@@ -427,14 +472,28 @@ expoData:
    trimSource: -2
    srcRaw: ch(21)
    chn: 1
-   swtch: "NONE"
+   swtch: "SC1"
    flightModes: 000000000
-   weight: 100
+   weight: 90
    name: ""
    offset: 0
    curve: 
       type: 1
-      value: 0
+      value: 25
+ -
+   mode: 3
+   scale: 0
+   trimSource: -2
+   srcRaw: ch(21)
+   chn: 1
+   swtch: "SC2"
+   flightModes: 000000000
+   weight: 70
+   name: ""
+   offset: 0
+   curve: 
+      type: 1
+      value: 25
  -
    mode: 3
    scale: 0
@@ -455,7 +514,7 @@ expoData:
    trimSource: -1
    srcRaw: ch(23)
    chn: 3
-   swtch: "NONE"
+   swtch: "SC0"
    flightModes: 000000000
    weight: 100
    name: ""
@@ -463,6 +522,34 @@ expoData:
    curve: 
       type: 1
       value: 0
+ -
+   mode: 3
+   scale: 0
+   trimSource: -1
+   srcRaw: ch(23)
+   chn: 3
+   swtch: "SC1"
+   flightModes: 000000000
+   weight: 90
+   name: ""
+   offset: 0
+   curve: 
+      type: 1
+      value: 25
+ -
+   mode: 3
+   scale: 0
+   trimSource: -1
+   srcRaw: ch(23)
+   chn: 3
+   swtch: "SC2"
+   flightModes: 000000000
+   weight: 70
+   name: ""
+   offset: 0
+   curve: 
+      type: 1
+      value: 25
  -
    mode: 3
    scale: 0
@@ -624,7 +711,7 @@ moduleData:
          crsf: 
             telemetryBaudrate: 0
 trainerData: 
-   mode: MASTER_TRAINER_JACK
+   mode: OFF
    channelsStart: 0
    channelsCount: -8
    frameLength: 0
