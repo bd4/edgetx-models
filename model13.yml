@@ -1,4 +1,4 @@
-semver: 2.9.0
+semver: 2.9.1
 header: 
    name: "iNav"
    modelId: 
@@ -173,6 +173,21 @@ mixData:
    weight: 100
    destCh: 12
    srcRaw: I12
+   carryTrim: 0
+   mixWarn: 0
+   mltpx: ADD
+   offset: 0
+   swtch: "NONE"
+   flightModes: 000000000
+   delayUp: 0
+   delayDown: 0
+   speedUp: 0
+   speedDown: 0
+   name: ""
+ -
+   weight: 100
+   destCh: 13
+   srcRaw: I13
    carryTrim: 0
    mixWarn: 0
    mltpx: ADD
@@ -665,6 +680,20 @@ expoData:
    weight: 100
    name: ""
    offset: 0
+ -
+   mode: 3
+   scale: 0
+   trimSource: 0
+   srcRaw: POT1
+   chn: 13
+   swtch: "NONE"
+   flightModes: 000000000
+   weight: 100
+   name: ""
+   offset: 0
+   curve: 
+      type: 1
+      value: 0
 customFn: 
    0:
       swtch: "SD0"

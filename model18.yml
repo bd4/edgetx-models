@@ -1,4 +1,4 @@
-semver: 2.9.0
+semver: 2.9.1
 header: 
    name: "DFlyByme"
    modelId: 
@@ -984,13 +984,13 @@ flightModeData:
          0:
             val: -100
          1:
-            val: 75
+            val: 56
          2:
-            val: 25
+            val: 24
          3:
             val: 0
          4:
-            val: 70
+            val: 100
          5:
             val: 0
          6:
